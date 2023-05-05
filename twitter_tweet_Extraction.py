@@ -122,7 +122,7 @@ def getTweets(stock,company):
     end_date = pd.to_datetime('2023-04-01', utc=True)
     handles = []
 
-    with open('./data/twitteruserhandles/randomuser_twiiterhandle.csv', newline='') as csvfile:
+    with open('./data/twitteruserhandles/randomusers.csv', newline='') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             handles.append(row[2])
@@ -142,6 +142,7 @@ def getTweets(stock,company):
                     created_at = tweet.created_at
                     line = {'text' : tweet_text, 'favourite_count' : favourite_count, 'retweet_count' : retweet_count, 'created_at' : created_at, 'handle': handle}
                     output.append(line)
+                    print("1")
     df = pd.DataFrame(output)
     #df = df[(pd.to_datetime(df['created_at']) >= start_date) & (pd.to_datetime(df['created_at']) <= end_date)]
     df.to_csv("./data/random30usersdata"+".csv")

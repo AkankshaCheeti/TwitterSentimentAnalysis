@@ -6,10 +6,10 @@ import yfinance as yf
 import pandas as pd
 from yahoo_fin import stock_info as si
 def getSentiment(stock,company):
-    #data = getTweets(stock,company)
+    data = getTweets(stock,company)
     #data = pd.read_csv(r"./data/AMZN_randompeopledata/AMZN_random.csv", encoding = 'utf8')
     #data = pd.read_csv(r"./data/AMZN_successfulpeopledata/AMZN_successful.csv", encoding = 'utf8')
-    data = pd.read_csv(r"./data/MSFT_randompeopledata/MSFT_random.csv", encoding = 'utf8')
+    #data = pd.read_csv(r"./data/MSFT_randompeopledata/MSFT_random.csv", encoding = 'utf8')
     #data = pd.read_csv(r"./data/MSFT_successfulpeopledata/MSFT_successful.csv", encoding = 'utf8')
     cleaned_data = data_preprocessing(data, stock)
     cleaned_data['date'] = pd.to_datetime(cleaned_data['created_at']).dt.normalize()
